@@ -33,7 +33,6 @@ const SignIn = () => {
 
   const [creds, setCreds] = useState({
     name: "",
-    email: "",
     password: "",
   });
 
@@ -42,7 +41,7 @@ const SignIn = () => {
 
     dispatch(signIn(creds));
     setCreds({
-      email: "",
+      name: "",
       password: "",
     });
   };
@@ -52,7 +51,7 @@ const SignIn = () => {
   }
 
   return (
-    <>
+    <div className="formContent">
       <form
         className={classes.formStyle}
         noValidate
@@ -68,15 +67,6 @@ const SignIn = () => {
           fullWidth
           value={creds.name}
           onChange={(e) => setCreds({ ...creds, name: e.target.value })}
-        />
-        <TextField
-          className={classes.spacing}
-          id="email"
-          label="Email"
-          variant="outlined"
-          fullWidth
-          value={creds.email}
-          onChange={(e) => setCreds({ ...creds, email: e.target.value })}
         />
         <TextField
           className={classes.spacing}
@@ -96,7 +86,7 @@ const SignIn = () => {
           Sign In
         </Button>
       </form>
-    </>
+    </div>
   );
 };
 
