@@ -2,7 +2,7 @@ import axios from "axios";
 import { url, setHeaders } from "../../api/index";
 import { toast } from "react-toastify";
 
-export const getTodos = () => {
+export const getArticles = () => {
   return (dispatch) => {
     axios
       .get(`${url}/articles`, setHeaders())
@@ -18,7 +18,7 @@ export const getTodos = () => {
   };
 };
 
-export const addTodo = (article) => {
+export const addArticle = (article) => {
   return (dispatch, getState) => {
     const author = getState().auth.name;
     const uid = getState().auth._id;
@@ -42,10 +42,10 @@ export const addTodo = (article) => {
   };
 };
 
-export const updateTodo = (updatedTodo, id) => {
+export const updateArticle = (updatedArticle, id) => {
   return (dispatch) => {
     axios
-      .put(`${url}/articles/${id}`, updatedTodo, setHeaders())
+      .put(`${url}/articles/${id}`, updatedArticle, setHeaders())
       .then((article) => {
         dispatch({
           type: "UPDATE_ARTICLE",
@@ -61,7 +61,7 @@ export const updateTodo = (updatedTodo, id) => {
   };
 };
 
-export const checkTodo = (id) => {
+export const checkArticle = (id) => {
   return (dispatch) => {
     axios
       .patch(`${url}/articles/${id}`, {}, setHeaders())
@@ -80,7 +80,7 @@ export const checkTodo = (id) => {
   };
 };
 
-export const deleteTodo = (id) => {
+export const deleteArticle = (id) => {
   return (dispatch) => {
     axios
       .delete(`${url}/articles/${id}`, setHeaders())
