@@ -52,7 +52,7 @@ const SignUp = () => {
   }
 
   return (
-    <>
+    <div className="formContent">
       <form
         className={classes.formStyle}
         noValidate
@@ -96,7 +96,7 @@ const SignUp = () => {
           Sign Up
         </Button>
       </form>
-    </>
+    </div>
   );
 };
 
