@@ -114,7 +114,7 @@ function App() {
   const DefaultContainer = () => (
     <div className="container">
       <Navbar />
-      <Container className={ classes.pageContent }>
+      <Container className={ classes.pageContent } maxWidth="false">
         <Switch>
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
