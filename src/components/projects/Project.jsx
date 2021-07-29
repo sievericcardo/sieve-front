@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/styles";
 
 import moment from "moment";
 
-import { checkProject, deleteProject } from "../../store/actions/articleActions";
+import { checkProject, deleteProject } from "../../store/actions/projectActions";
 
 const useStyles = makeStyles({
   projectStyles: {
