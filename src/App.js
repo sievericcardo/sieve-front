@@ -9,8 +9,8 @@ import Home from './components/pages/Home';
 import Navbar from './components/navbar/Navbar';
 
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+// import Grid from '@material-ui/core/Grid';
+// import Paper from '@material-ui/core/Paper';
 
 import { makeStyles } from '@material-ui/styles';
 
@@ -19,12 +19,14 @@ import { loadUser } from './store/actions/authActions';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import clsx from 'clsx';
+// import clsx from 'clsx';
 
 import Dashboard from './components/dashboard/Dashboard';
-import Chart from './components/dashboard/Chart';
+// import Chart from './components/dashboard/Chart';
 import Sidebar from './components/dashboard/Sidebar';
 import Footer from './components/navbar/Footer';
+import ManageProjects from './components/dashboard/ManageProjects';
+import ManageArticles from './components/dashboard/ManageArticles';
 
 import './App.css';
 
@@ -67,7 +69,7 @@ function App() {
     dispatch(loadUser())
   }, [dispatch]);
 
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight)
+  // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   const DashboardContainer = () => (
     <div className="container">
@@ -77,13 +79,17 @@ function App() {
         <main className={ classes.content }>
           <div className={classes.appBarSpacer} />
           <Container maxWidth="lg" className={ classes.container }>
-            <Grid container spacing={3}>
+            <Switch>
+              <Route path="/manage-projects" component={ManageProjects} />
+              <Route path="/manage-articles" component={ManageArticles} />
+            </Switch>
+            {/* <Grid container spacing={3}>
               {/* chart */}
-              <Grid item xs={12} md={8} lg={9}>
+              {/* <Grid item xs={12} md={8} lg={9}>
                 <Paper className={ fixedHeightPaper }>
                   <Chart />
                 </Paper>
-              </Grid>
+              </Grid> */}
 
               {/* recent deposits */}
               {/* <Grid item xs={12} md={4} lg={3}>
@@ -96,9 +102,9 @@ function App() {
               {/* <Grid item xs={12}>
                 <Paper className={ fixedHeightPaper }>
                   <Orders />
-                </Paper>
-              </Grid> */}
-            </Grid>
+                {/* </Paper> */}
+              {/* </Grid> */}
+            {/* </Grid> */}
           </Container>
         </main>
       </div>
@@ -108,7 +114,7 @@ function App() {
   const DefaultContainer = () => (
     <div className="container">
       <Navbar />
-      <Container className={ classes.pageContent } maxWidth="false">
+      <Container className={ classes.pageContent }>
         <Switch>
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
