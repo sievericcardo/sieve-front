@@ -48,11 +48,11 @@ const ListProjects = ({ project, setProject }) => {
           projects.map((project) => {
             return (
               <Project
-              project={project}
-              key={project._id}
-              setProject={setProject}
-              projects={projects}
-            />
+                project={project}
+                key={project._id}
+                setProject={setProject}
+                projects={projects}
+              />
             );
           })}
       </div>
