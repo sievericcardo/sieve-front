@@ -18,23 +18,23 @@ const useStyles = makeStyles({
   },
 });
 
-const ListProjects = ({ setProject }) => {
+const ListProjects = ({ project, setProject }) => {
   const classes = useStyles();
   const projects = useSelector((state) => state.projects);
   const dispatch = useDispatch();
 
   var length = 0
 
+  // Use Effect will be called when our components renders
+  useEffect(() => {
+    dispatch(getProjects());
+  }, [dispatch]); // this is to avoid it making continually rendering
+  
   if (!projects) {
     length = 0
   } else {
     length = projects.length
   }
-
-  // Use Effect will be called when our components renders
-  useEffect(() => {
-    dispatch(getProjects());
-  }, [dispatch]); // this is to avoid it making continually rendering
 
   console.log(projects);
 
