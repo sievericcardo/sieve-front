@@ -30,12 +30,13 @@ const useStyles = makeStyles({
   },
 });
 
-const Project = ({ project, setProject }) => {
+const Project = ({ project, setProject, projects }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const handleUpdateClick = () => {
-    setProject(project); // Using the project passed as prop from the list to do
+  const handleUpdateClick = (id) => {
+    const foundTodo = projects.find((todo) => todo._id === id);
+    setProject({ ...foundTodo });
 
     window.scrollTo({
       top: 0,
@@ -69,7 +70,7 @@ const Project = ({ project, setProject }) => {
             <Button onClick={() => handleCheck(project._id)}>
               <CheckCircle color="action" />
             </Button>
-            <Button onClick={() => handleUpdateClick()}>
+            <Button onClick={() => handleUpdateClick(project._id)}>
               <Create color="primary" />
             </Button>
             <Button onClick={() => handleDelete(project._id)}>
