@@ -13,6 +13,8 @@ const useStyles = makeStyles({
     padding: "20px",
     borderRadius: "9px",
     boxShadow: "0px 0px 12px -3px #000",
+    backgroundColor: '#fff',
+    color: '#000',
   },
 });
 
@@ -20,6 +22,14 @@ const ListProjects = ({ setProject }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.projects);
+
+  var length = 0
+
+  if (!projects) {
+    length = 0
+  } else {
+    length = projects.length
+  }
 
   console.log(projects);
 
@@ -32,7 +42,7 @@ const ListProjects = ({ setProject }) => {
     <>
       <div className={classes.projectStyle}>
         <Typography variant="h5">
-          {projects.length > 0 ? "My projects" : "No project yet"}
+          {length > 0 ? "My projects" : "No project yet"}
         </Typography>
         {projects &&
           projects.map((project) => {
