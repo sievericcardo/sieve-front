@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     boxShadow: "0px 0px 12px -3px #000",
     display: "flex",
     justifyContent: "space-between",
+    backgroundColor: '#fff',
   },
   submitButton: {
     marginLeft: "20px",
@@ -28,7 +29,6 @@ const AddProject = ({ project, setProject }) => {
 
   // const [project, setProject] = useState({
   //   name: "",
-  //   isComplete: false,
   // });
 
   const handleSubmit = (e) => {
@@ -39,24 +39,22 @@ const AddProject = ({ project, setProject }) => {
 
       const updatedProject = {
         name: project.name,
-        isComplete: project.isComplete,
         date: project.date,
         author: "Riccardo",
       };
 
       dispatch(updateProject(updatedProject, id));
     } else {
-      const newTodo = {
+      const newProject = {
         ...project,
         date: new Date(),
       };
 
-      dispatch(addProject(newTodo));
+      dispatch(addProject(newProject));
     }
 
     setProject({
       name: "",
-      isComplete: false,
     });
   };
 
@@ -66,7 +64,7 @@ const AddProject = ({ project, setProject }) => {
         noValidate
         autoComplete="off"
         className={classes.formStyle}
-        onSubmit={handleSubmit()}
+        onSubmit={ handleSubmit }
       >
         <TextField
           id="enter-project"
