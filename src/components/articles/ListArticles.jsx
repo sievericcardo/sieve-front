@@ -13,6 +13,8 @@ const useStyles = makeStyles({
     padding: "20px",
     borderRadius: "9px",
     boxShadow: "0px 0px 12px -3px #000",
+    backgroundColor: '#fff',
+    color: '#000',
   },
 });
 
@@ -21,7 +23,13 @@ const ListArticles = ({ setArticle }) => {
   const dispatch = useDispatch();
   const articles = useSelector((state) => state.articles);
 
-  console.log(articles);
+  var length = 0;
+
+  if (!articles) {
+    length = 0
+  } else {
+    length = articles.length
+  }
 
   // Use Effect will be called when our components renders
   useEffect(() => {
@@ -32,7 +40,7 @@ const ListArticles = ({ setArticle }) => {
     <>
       <div className={classes.articleStyle}>
         <Typography variant="h5">
-          {articles.length > 0 ? "My articles" : "No article yet"}
+          {length > 0 ? "My articles" : "No article yet"}
         </Typography>
         {articles &&
           articles.map((article) => {
