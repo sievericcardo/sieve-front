@@ -39,6 +39,7 @@ const AddProject = ({ project, setProject }) => {
 
       const updatedProject = {
         name: project.name,
+        body: project.body,
         date: project.date,
         author: "Riccardo",
       };
@@ -55,6 +56,7 @@ const AddProject = ({ project, setProject }) => {
 
     setProject({
       name: "",
+      body: "",
     });
   };
 
@@ -69,11 +71,21 @@ const AddProject = ({ project, setProject }) => {
         <TextField
           id="enter-project"
           variant="outlined"
-          label="enterProject"
+          label="Project title"
           autoFocus
           fullWidth
           value={project.name}
           onChange={(e) => setProject({ ...project, name: e.target.value })}
+        />
+        <TextField 
+          id="project-body"
+          aria-label="minimum height"
+          minRows={1}
+          label="Project body"
+          variant="outlined"
+          fullWidth
+          value={project.body}
+          onChange={(e) => setProject({ ...project, body: e.target.value })}
         />
         <Button
           className={classes.submitButton}
