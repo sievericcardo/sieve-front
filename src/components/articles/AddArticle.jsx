@@ -39,6 +39,7 @@ const AddArticle = ({ article, setArticle }) => {
 
       const updatedArticle = {
         name: article.name,
+        body: article.body,
         date: article.date,
         author: "Riccardo",
       };
@@ -55,6 +56,7 @@ const AddArticle = ({ article, setArticle }) => {
 
     setArticle({
       name: "",
+      body: "",
     });
   };
 
@@ -69,11 +71,21 @@ const AddArticle = ({ article, setArticle }) => {
         <TextField
           id="enter-article"
           variant="outlined"
-          label="enterArticle"
+          label="Article title"
           autoFocus
           fullWidth
           value={article.name}
           onChange={(e) => setArticle({ ...article, name: e.target.value })}
+        />
+        <TextField 
+          id="article-body"
+          aria-label="minimum height"
+          minRows={1}
+          label="Article body"
+          variant="outlined"
+          fullWidth
+          value={article.body}
+          onChange={(e) => setArticle({ ...article, body: e.target.value })}
         />
         <Button
           className={ classes.submitButton }
