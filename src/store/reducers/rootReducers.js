@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
-// import articleReducer from "./articleReducer";
+import articleReducer from "./articleReducer";
+import projectReducer from "./projectReducer";
 import authReducer from "./authReducers";
 
 const rootReducer = combineReducers({
-//   articles: articleReducer,
+  articles: articleReducer,
+  projects: projectReducer,
   auth: authReducer,
 });
 
