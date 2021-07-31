@@ -45,7 +45,7 @@ const ListProjects = ({ project, setProject }) => {
         {projects &&
           projects.map((project) => {
             return (
-              <Grid item xs={3}>
+              <Grid item xs={4}>
                 <Project
                   project={project}
                   key={project._id}
