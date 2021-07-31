@@ -84,28 +84,6 @@ function App() {
               <Route path={match.url + "/manage-projects"} component={ManageProjects} />
               <Route path={match.url + "/manage-articles"} component={ManageArticles} />
             </Switch>
-            {/* <Grid container spacing={3}>
-              {/* chart */}
-              {/* <Grid item xs={12} md={8} lg={9}>
-                <Paper className={ fixedHeightPaper }>
-                  <Chart />
-                </Paper>
-              </Grid> */}
-
-              {/* recent deposits */}
-              {/* <Grid item xs={12} md={4} lg={3}>
-                <Paper className={ fixedHeightPaper }>
-                  <Deposits />
-                </Paper>
-              </Grid> */}
-
-              {/* recent orders */}
-              {/* <Grid item xs={12}>
-                <Paper className={ fixedHeightPaper }>
-                  <Orders />
-                {/* </Paper> */}
-              {/* </Grid> */}
-            {/* </Grid> */}
           </Container>
         </main>
       </div>
