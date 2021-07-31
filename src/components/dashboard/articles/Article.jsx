@@ -57,7 +57,7 @@ const Article = ({ article, setArticle }) => {
     <>
       <div className={classes.articleStyles}>
         <div>
-          <Typography variant="subtitle1">{article.name}</Typography>
+          <Typography variant="h4">{article.name}</Typography>
           <Typography variant="body2" className={classes.greyStyle}>
             Text: {article.body}
           </Typography>
