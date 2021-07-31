@@ -1,6 +1,8 @@
 import logo from '../../assets/img/base-img/sieve-logo-dark.webp';
 
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Redirect } from "react-router-dom";
 
 import clsx from 'clsx';
 
@@ -101,11 +103,17 @@ const useStyles = makeStyles((theme) => ({
 
 const Dashboard = () => {
   const classes = useStyles();
+  const auth = useSelector((state) => state.auth);
+
   const [open, setOpen] = useState(true);
 
   const handleDrawerOpen = () => {
     setOpen(true);
   };
+
+  if (auth === null) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className={ classes.root }>
