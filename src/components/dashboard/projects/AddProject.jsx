@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 
 import { TextField, Button } from "@material-ui/core";
@@ -26,10 +26,6 @@ const useStyles = makeStyles({
 const AddProject = ({ project, setProject }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-
-  // const [project, setProject] = useState({
-  //   name: "",
-  // });
 
   const handleSubmit = (e) => {
     e.preventDefault();
