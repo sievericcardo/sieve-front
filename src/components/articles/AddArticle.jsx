@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     boxShadow: "0px 0px 12px -3px #000",
     display: "flex",
     justifyContent: "space-between",
+    backgroundColor: '#fff'
   },
   submitButton: {
     marginLeft: "20px",
@@ -28,7 +29,6 @@ const AddArticle = ({ article, setArticle }) => {
 
   // const [article, setArticle] = useState({
   //   name: "",
-  //   isComplete: false,
   // });
 
   const handleSubmit = (e) => {
@@ -39,24 +39,22 @@ const AddArticle = ({ article, setArticle }) => {
 
       const updatedArticle = {
         name: article.name,
-        isComplete: article.isComplete,
         date: article.date,
         author: "Riccardo",
       };
 
       dispatch(updateArticle(updatedArticle, id));
     } else {
-      const newTodo = {
+      const newArticle = {
         ...article,
         date: new Date(),
       };
 
-      dispatch(addArticle(newTodo));
+      dispatch(addArticle(newArticle));
     }
 
     setArticle({
       name: "",
-      isComplete: false,
     });
   };
 
@@ -65,8 +63,8 @@ const AddArticle = ({ article, setArticle }) => {
       <form
         noValidate
         autoComplete="off"
-        className={classes.formStyle}
-        onSubmit={handleSubmit()}
+        className={ classes.formStyle }
+        onSubmit={ handleSubmit }
       >
         <TextField
           id="enter-article"
@@ -78,7 +76,7 @@ const AddArticle = ({ article, setArticle }) => {
           onChange={(e) => setArticle({ ...article, name: e.target.value })}
         />
         <Button
-          className={classes.submitButton}
+          className={ classes.submitButton }
           color="primary"
           variant="contained"
           type="submit"
