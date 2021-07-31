@@ -47,7 +47,7 @@ const SignIn = () => {
   };
 
   if (auth._id) {
-    return <Redirect to="/" />;
+    return <Redirect to="/cms-dashboard" />;
   }
 
   return (
