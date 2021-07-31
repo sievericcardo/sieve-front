@@ -56,13 +56,7 @@ const Project = ({ project, setProject }) => {
     <>
       <div className={classes.projectStyles}>
         <div>
-          {project.isComplete ? (
-            <Typography variant="subtitle1" className={classes.checked}>
-              {project.name}
-            </Typography>
-          ) : (
-            <Typography variant="subtitle1">{project.name}</Typography>
-          )}
+          <Typography variant="subtitle1">{project.name}</Typography>
           <Typography variant="body2" className={classes.greyStyle}>
             Author: {project.author}
           </Typography>
@@ -73,13 +67,8 @@ const Project = ({ project, setProject }) => {
         <div>
           <ButtonGroup size="small" aria-label="outlined primary button group">
             <Button onClick={() => handleCheck(project._id)}>
-              {project.isComplete ? (
-                <CheckCircle color="action" className={classes.isComplete} />
-              ) : (
-                <CheckCircle color="action" />
-              )}
+              <CheckCircle color="action" />
             </Button>
-
             <Button onClick={() => handleUpdateClick()}>
               <Create color="primary" />
             </Button>
