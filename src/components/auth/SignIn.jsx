@@ -72,6 +72,7 @@ const SignIn = () => {
           className={classes.spacing}
           id="password"
           label="Password"
+          type="password"
           variant="outlined"
           fullWidth
           value={creds.password}
