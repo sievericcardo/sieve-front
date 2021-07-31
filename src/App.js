@@ -22,7 +22,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import clsx from 'clsx';
 
 import Dashboard from './components/dashboard/Dashboard';
-// import Chart from './components/dashboard/Chart';
+import Chart from './components/dashboard/Chart';
 import Sidebar from './components/dashboard/Sidebar';
 import Footer from './components/navbar/Footer';
 import ManageProjects from './components/dashboard/ManageProjects';
@@ -71,7 +71,7 @@ function App() {
 
   // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  const DashboardContainer = () => (
+  const DashboardContainer = ({ match }) => (
     <div className="container">
       <Dashboard />
       <div>
@@ -80,8 +80,9 @@ function App() {
           <div className={classes.appBarSpacer} />
           <Container maxWidth="lg" className={ classes.container }>
             <Switch>
-              <Route path="/manage-projects" component={ManageProjects} />
-              <Route path="/manage-articles" component={ManageArticles} />
+              <Route exact path={match.url} component={Chart} />
+              <Route path={match.url + "/manage-projects"} component={ManageProjects} />
+              <Route path={match.url + "/manage-articles"} component={ManageArticles} />
             </Switch>
             {/* <Grid container spacing={3}>
               {/* chart */}
@@ -128,10 +129,9 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Dashboard /> */}
       <BrowserRouter>
         <ToastContainer />
-        <Route exact path="/cms-dashboard" component={DashboardContainer}/>
+        <Route path="/cms-dashboard" component={DashboardContainer}/>
         <Route component={DefaultContainer}/>
       </BrowserRouter>
     </div>
