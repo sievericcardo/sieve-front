@@ -20,8 +20,8 @@ const useStyles = makeStyles({
 
 const ListProjects = ({ setProject }) => {
   const classes = useStyles();
-  const dispatch = useDispatch();
   const projects = useSelector((state) => state.projects);
+  const dispatch = useDispatch();
 
   var length = 0
 
@@ -31,12 +31,12 @@ const ListProjects = ({ setProject }) => {
     length = projects.length
   }
 
-  console.log(projects);
-
   // Use Effect will be called when our components renders
   useEffect(() => {
     dispatch(getProjects());
   }, [dispatch]); // this is to avoid it making continually rendering
+
+  console.log(projects);
 
   return (
     <>
@@ -46,7 +46,12 @@ const ListProjects = ({ setProject }) => {
         </Typography>
         {projects &&
           projects.map((project) => {
-            return <Project project={project} key={project._id} setProject={setProject} />;
+            return <Project
+              project={project}
+              key={project._id}
+              setProject={setProject}
+              projects={projects}
+            />;
           })}
       </div>
     </>
