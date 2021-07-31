@@ -56,13 +56,7 @@ const Article = ({ article, setArticle }) => {
     <>
       <div className={classes.articleStyles}>
         <div>
-          {article.isComplete ? (
-            <Typography variant="subtitle1" className={classes.checked}>
-              {article.name}
-            </Typography>
-          ) : (
-            <Typography variant="subtitle1">{article.name}</Typography>
-          )}
+          <Typography variant="subtitle1">{article.name}</Typography>
           <Typography variant="body2" className={classes.greyStyle}>
             Author: {article.author}
           </Typography>
@@ -73,13 +67,8 @@ const Article = ({ article, setArticle }) => {
         <div>
           <ButtonGroup size="small" aria-label="outlined primary button group">
             <Button onClick={() => handleCheck(article._id)}>
-              {article.isComplete ? (
-                <CheckCircle color="action" className={classes.isComplete} />
-              ) : (
-                <CheckCircle color="action" />
-              )}
+              <CheckCircle color="action" />
             </Button>
-
             <Button onClick={() => handleUpdateClick()}>
               <Create color="primary" />
             </Button>
