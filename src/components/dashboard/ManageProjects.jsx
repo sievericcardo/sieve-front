@@ -10,7 +10,7 @@ const ManageProjects = () => {
 
     const [ project, setProject ] = useState({
         name: "",
-        isComplete: false
+        body: "",
     });
 
     if(!auth._id) {
