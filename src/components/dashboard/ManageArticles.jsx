@@ -10,7 +10,6 @@ const ManageArticles = () => {
 
     const [ article, setArticle ] = useState({
         name: "",
-        isComplete: false
     });
 
     if(!auth._id) {
