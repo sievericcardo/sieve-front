@@ -20,7 +20,7 @@ const ManageArticles = () => {
     return (
         <>
             <AddArticle article={article} setArticle={setArticle} />
-            <ListArticles setArticle={setArticle} />
+            <ListArticles article={article} setArticle={setArticle} />
         </>
     );
 };

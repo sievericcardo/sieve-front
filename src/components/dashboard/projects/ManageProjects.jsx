@@ -20,7 +20,7 @@ const ManageProjects = () => {
     return (
         <>
             <AddProject project={project} setProject={setProject} />
-            <ListProjects setProject={setProject} />
+            <ListProjects project={project} setProject={setProject} />
         </>
     );
 };

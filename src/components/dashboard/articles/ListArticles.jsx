@@ -5,7 +5,7 @@ import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
 import Article from "./Article";
-import { getArticles } from "../../store/actions/articleActions";
+import { getArticles } from "../../../store/actions/articleActions";
 
 const useStyles = makeStyles({
   articleStyle: {
@@ -44,7 +44,13 @@ const ListArticles = ({ setArticle }) => {
         </Typography>
         {articles &&
           articles.map((article) => {
-            return <Article article={article} key={article._id} setArticle={setArticle} />;
+            return (
+              <Article
+                article={article}
+                key={article._id}
+                setArticle={setArticle}
+              />
+            );
           })}
       </div>
     </>

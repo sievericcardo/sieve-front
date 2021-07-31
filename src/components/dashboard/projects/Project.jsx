@@ -7,10 +7,10 @@ import { makeStyles } from "@material-ui/styles";
 
 import moment from "moment";
 
-import { checkArticle, deleteArticle } from "../../store/actions/articleActions";
+import { checkProject, deleteProject } from "../../../store/actions/projectActions";
 
 const useStyles = makeStyles({
-  articleStyles: {
+  projectStyles: {
     margin: "20px auto",
     padding: "20px",
     border: "2px solid #bdbdbd",
@@ -18,9 +18,10 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
     textAlign: "left",
+    color: "#000"
   },
   greyStyle: {
-    color: "#8f8f8f",
+    color: "#212121!important",
   },
   isComplete: {
     color: "green",
@@ -30,12 +31,13 @@ const useStyles = makeStyles({
   },
 });
 
-const Article = ({ article, setArticle }) => {
+const Project = ({ project, setProject, projects }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const handleUpdateClick = () => {
-    setArticle(article); // Using the article passed as prop from the list to do
+  const handleUpdateClick = (id) => {
+    const foundTodo = projects.find((todo) => todo._id === id);
+    setProject({ ...foundTodo });
 
     window.scrollTo({
       top: 0,
@@ -45,34 +47,34 @@ const Article = ({ article, setArticle }) => {
   };
 
   const handleCheck = (id) => {
-    dispatch(checkArticle(id));
+    dispatch(checkProject(id));
   };
 
   const handleDelete = (id) => {
-    dispatch(deleteArticle(id));
+    dispatch(deleteProject(id));
   };
 
   return (
     <>
-      <div className={classes.articleStyles}>
+      <div className={classes.projectStyles}>
         <div>
-          <Typography variant="subtitle1">{article.name}</Typography>
+          <Typography variant="subtitle1">{project.name}</Typography>
           <Typography variant="body2" className={classes.greyStyle}>
-            Author: {article.author}
+            Text: {project.body}
           </Typography>
           <Typography variant="body2" className={classes.greyStyle}>
-            Added: {moment(article.date).fromNow()}
+            Added: {moment(project.date).fromNow()}
           </Typography>
         </div>
         <div>
           <ButtonGroup size="small" aria-label="outlined primary button group">
-            <Button onClick={() => handleCheck(article._id)}>
+            <Button onClick={() => handleCheck(project._id)}>
               <CheckCircle color="action" />
             </Button>
-            <Button onClick={() => handleUpdateClick()}>
+            <Button onClick={() => handleUpdateClick(project._id)}>
               <Create color="primary" />
             </Button>
-            <Button onClick={() => handleDelete(article._id)}>
+            <Button onClick={() => handleDelete(project._id)}>
               <Delete color="secondary" />
             </Button>
           </ButtonGroup>
@@ -82,4 +84,5 @@ const Article = ({ article, setArticle }) => {
   );
 };
 
-export default Article;
+export default Project;
+

@@ -5,7 +5,7 @@ import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
 import Project from "./Project";
-import { getProjects } from "../../store/actions/projectActions";
+import { getProjects } from "../../../store/actions/projectActions";
 
 const useStyles = makeStyles({
   projectStyle: {
@@ -46,12 +46,14 @@ const ListProjects = ({ project, setProject }) => {
         </Typography>
         {projects &&
           projects.map((project) => {
-            return <Project
+            return (
+              <Project
               project={project}
               key={project._id}
               setProject={setProject}
               projects={projects}
-            />;
+            />
+            );
           })}
       </div>
     </>

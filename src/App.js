@@ -25,8 +25,8 @@ import Dashboard from './components/dashboard/Dashboard';
 import Chart from './components/dashboard/Chart';
 import Sidebar from './components/dashboard/Sidebar';
 import Footer from './components/navbar/Footer';
-import ManageProjects from './components/dashboard/ManageProjects';
-import ManageArticles from './components/dashboard/ManageArticles';
+import ManageProjects from './components/dashboard/projects/ManageProjects';
+import ManageArticles from './components/dashboard/articles/ManageArticles';
 
 import './App.css';
 

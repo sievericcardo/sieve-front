@@ -5,7 +5,7 @@ import { TextField, Button } from "@material-ui/core";
 import { Send } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/styles";
 
-import { addProject, updateProject } from "../../store/actions/projectActions";
+import { addProject, updateProject } from "../../../store/actions/projectActions";
 
 const useStyles = makeStyles({
   formStyle: {
