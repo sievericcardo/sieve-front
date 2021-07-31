@@ -82,6 +82,7 @@ const SignUp = () => {
           className={classes.spacing}
           id="password"
           label="Password"
+          type="password"
           variant="outlined"
           fullWidth
           value={user.password}
