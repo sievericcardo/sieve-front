@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   projects: {
-    color: '#000'
+    color: '#f1f1f1'
   }
 });
 
