@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: theme.palette.background.paper,
+    color: '#000!important',
   },
   imageList: {
     flexWrap: 'nowrap',
@@ -28,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translateZ(0)',
   },
   title: {
-    color: theme.palette.primary.light,
+    // color: theme.palette.primary.dark,
+    color: '#000!important',
   },
   titleBar: {
     background:
