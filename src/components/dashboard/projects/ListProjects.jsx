@@ -36,8 +36,6 @@ const ListProjects = ({ project, setProject }) => {
     length = projects.length
   }
 
-  console.log(projects);
-
   return (
     <>
       <div className={classes.projectStyle}>
