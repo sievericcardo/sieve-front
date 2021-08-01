@@ -27,6 +27,7 @@ import { url } from '../../api/index';
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    color: '#000!important'
   },
   media: {
     height: 0,
@@ -45,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
+  text: {
+    color: '#000!important',
+  },
 }));
 
 const  Article = ({ article, setArticle }) => {
@@ -57,8 +61,11 @@ const  Article = ({ article, setArticle }) => {
 
   const renderImage = async() => {
     try {
+      console.log(article.image);
       const res = await axios.get(`${url}/articles/image`, {image: article.image});
       const image = res.data;
+
+      console.log(image);
   
       // this will re render the view with new data
       return image;
@@ -69,7 +76,7 @@ const  Article = ({ article, setArticle }) => {
 
   return (
     <Card className={classes.root}>
-      <CardHeader
+      <CardHeader className={ classes.text }
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
             R
@@ -85,7 +92,7 @@ const  Article = ({ article, setArticle }) => {
       />
       <CardMedia
         className={classes.media}
-        image={ renderImage }
+        image={ renderImage() }
         title={ article.name }
       />
       {/* { axios.get(`${url}/articles/image`, {image: article.image,}).then(response => (
@@ -95,7 +102,7 @@ const  Article = ({ article, setArticle }) => {
           title={ article.name }
         />
       ))} */}
-      <CardContent>
+      <CardContent className={ classes.text }>
         <Typography variant="body2" component="p">
           This impressive paella is a perfect party dish and a fun meal to cook together with your
           guests. Add 1 cup of frozen peas along with the mussels, if you like.
