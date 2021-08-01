@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-
-import axios from 'axios';
+import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -55,52 +53,12 @@ const useStyles = makeStyles((theme) => ({
 const  Article = ({ article, setArticle }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const [image, setImage] = React.useState(null);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  // const renderImage = async() => {
-  //   axios.get(`${url}/articles/image?path=${article.image}`)
-  //     .then(response => {
-  //       return response.data
-  //       // setImage({
-  //       //       image: response.data
-  //       // });
-  //     })
-    //   .catch(err => console.log(err));
-    // try {
-    //   const res = await axios.get(`${url}/articles/image?path=${article.image}`);
-    //   const image = res.data;
-  
-    //   // this will re render the view with new data
-    //   setImage({
-    //     image: image
-    //   });
-    // } catch (err) {
-    //   console.log(err);
-    // }
-  // }
-
-  const renderImage = async() => {
-    const value = encodeURIComponent(article.image);
-    const response = await fetch(`${url}/articles/image?path=${value}`, {
-      method: 'GET'
-    });
-
-    console.log(response);
-
-    const jsonData = await response.json();
-
-    console.info(jsonData);
-    setImage(jsonData.data)
-  }
-
-  useEffect(() => {
-    renderImage()
-    console.log(image);
-  });
+  const imageUrl = `${url}/articles/image?path=${article.image}`
 
   return (
     <Card className={classes.root}>
@@ -120,7 +78,7 @@ const  Article = ({ article, setArticle }) => {
       />
       <CardMedia
         className={classes.media}
-        image={ image }
+        image={ imageUrl }
         title={ article.name }
       />
       {/* { axios.get(`${url}/articles/image`, {image: article.image,}).then(response => (
