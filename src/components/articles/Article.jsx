@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import axios from 'axios';
 
@@ -27,7 +27,8 @@ import { url } from '../../api/index';
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-    color: '#000!important'
+    color: '#000!important',
+    backgroundColor: '#262626'
   },
   media: {
     height: 0,
@@ -47,32 +48,59 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: red[500],
   },
   text: {
-    color: '#000!important',
+    color: '#fff!important',
   },
 }));
 
 const  Article = ({ article, setArticle }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const [image, setImage] = React.useState(null);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const renderImage = async() => {
-    try {
-      console.log(article.image);
-      const res = await axios.get(`${url}/articles/image`, {image: article.image});
-      const image = res.data;
-
-      console.log(image);
+  // const renderImage = async() => {
+  //   axios.get(`${url}/articles/image?path=${article.image}`)
+  //     .then(response => {
+  //       return response.data
+  //       // setImage({
+  //       //       image: response.data
+  //       // });
+  //     })
+    //   .catch(err => console.log(err));
+    // try {
+    //   const res = await axios.get(`${url}/articles/image?path=${article.image}`);
+    //   const image = res.data;
   
-      // this will re render the view with new data
-      return image;
-    } catch (err) {
-      console.log(err);
-    }
+    //   // this will re render the view with new data
+    //   setImage({
+    //     image: image
+    //   });
+    // } catch (err) {
+    //   console.log(err);
+    // }
+  // }
+
+  const renderImage = async() => {
+    const value = encodeURIComponent(article.image);
+    const response = await fetch(`${url}/articles/image?path=${value}`, {
+      method: 'GET'
+    });
+
+    console.log(response);
+
+    const jsonData = await response.json();
+
+    console.info(jsonData);
+    setImage(jsonData.data)
   }
+
+  useEffect(() => {
+    renderImage()
+    console.log(image);
+  });
 
   return (
     <Card className={classes.root}>
@@ -92,7 +120,7 @@ const  Article = ({ article, setArticle }) => {
       />
       <CardMedia
         className={classes.media}
-        image={ renderImage() }
+        image={ image }
         title={ article.name }
       />
       {/* { axios.get(`${url}/articles/image`, {image: article.image,}).then(response => (
@@ -127,7 +155,7 @@ const  Article = ({ article, setArticle }) => {
         </IconButton>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
+        <CardContent className={ classes.text }>
           <Typography paragraph>{ article.body }</Typography>
         </CardContent>
       </Collapse>

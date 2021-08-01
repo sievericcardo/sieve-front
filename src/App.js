@@ -9,8 +9,6 @@ import Home from './components/pages/Home';
 import Navbar from './components/navbar/Navbar';
 
 import Container from '@material-ui/core/Container';
-// import Grid from '@material-ui/core/Grid';
-// import Paper from '@material-ui/core/Paper';
 
 import { makeStyles } from '@material-ui/styles';
 
@@ -18,8 +16,6 @@ import { loadUser } from './store/actions/authActions';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-// import clsx from 'clsx';
 
 import Dashboard from './components/dashboard/Dashboard';
 import Chart from './components/dashboard/Chart';
@@ -69,8 +65,6 @@ function App() {
     dispatch(loadUser())
   }, [dispatch]);
 
-  // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
   const DashboardContainer = ({ match }) => (
     <div className="container">
       <Dashboard />
@@ -110,7 +104,7 @@ function App() {
       <BrowserRouter>
         <ToastContainer />
         <Route path="/cms-dashboard" component={DashboardContainer}/>
-        <Route component={DefaultContainer}/>
+        <Route exact path={["/", "/signin"]} component={DefaultContainer}/>
       </BrowserRouter>
     </div>
   );
