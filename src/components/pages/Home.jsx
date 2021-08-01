@@ -6,6 +6,7 @@ import { makeStyles, Typography } from '@material-ui/core';
 
 import Banner from '../assets/Banner';
 import Projects from '../projects/Projects';
+import Articles from '../articles/Articles';
 
 const useStyles = makeStyles({
   mainContent: {
@@ -23,6 +24,7 @@ const useStyles = makeStyles({
     borderBottom: '3px solid white',
     fontSize: '2.3em',
     marginBottom: '0.5em',
+    marginTop: '1.2em',
     padding: '15px',
     textAlign: 'center',
   }
@@ -42,6 +44,10 @@ const Home = () => {
           My projects
         </Typography>
         <Projects />
+        <Typography variant="h3" className={ classes.subTitle}>
+          My articles
+        </Typography>
+        <Articles />
       </div>
     </div>
   )
