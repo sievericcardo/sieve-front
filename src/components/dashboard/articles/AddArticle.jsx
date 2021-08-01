@@ -21,11 +21,26 @@ const useStyles = makeStyles({
   submitButton: {
     marginLeft: "20px",
   },
+  imageUpload: {
+    color: '#4d3f5a',
+    padding: '10px',
+    margin: '10px'
+  }
 });
 
 const AddArticle = ({ article, setArticle }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+
+  const getBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,12 +57,19 @@ const AddArticle = ({ article, setArticle }) => {
 
       dispatch(updateArticle(updatedArticle, id));
     } else {
-      const newArticle = {
-        ...article,
-        date: new Date(),
-      };
+      var file = article.image;
 
-      dispatch(addArticle(newArticle));
+      getBase64(file).then (
+        data => {
+          const newArticle = {
+            ...article,
+            image: data,
+            date: new Date(),
+          };
+    
+          dispatch(addArticle(newArticle));
+        }
+      );
     }
 
     setArticle({
@@ -62,6 +84,7 @@ const AddArticle = ({ article, setArticle }) => {
         noValidate
         autoComplete="off"
         className={ classes.formStyle }
+        encType='multipart/form-data'
         onSubmit={ handleSubmit }
       >
         <TextField
@@ -82,6 +105,14 @@ const AddArticle = ({ article, setArticle }) => {
           fullWidth
           value={article.body}
           onChange={(e) => setArticle({ ...article, body: e.target.value })}
+        />
+        <input
+          type="file"
+          id="uploading"
+          name="uploading"
+          accept="image/webp"
+          className={ classes.imageUpload }
+          onChange={(e) => setArticle({ ...article, image: e.target.files[0] })}
         />
         <Button
           className={ classes.submitButton }
