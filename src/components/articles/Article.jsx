@@ -90,8 +90,7 @@ const  Article = ({ article, setArticle }) => {
       ))} */}
       <CardContent className={ classes.text }>
         <Typography variant="body2" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+          { article.body.substring(0, "50") }...
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
