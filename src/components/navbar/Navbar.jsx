@@ -76,11 +76,6 @@ const Navbar = () => {
                   Sign In
                 </Link>
               </Button>
-              <Button color="inherit">
-                <Link className={classes.linkStyle} to="/signup">
-                  Sign Up
-                </Link>
-              </Button>
             </>
           )}
         </Toolbar>
