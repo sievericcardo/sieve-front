@@ -15,6 +15,7 @@ const useStyles = makeStyles({
     boxShadow: "0px 0px 12px -3px #000",
     backgroundColor: '#fff',
     color: '#000',
+    marginTop: '0.2em',
   },
 });
 
