@@ -81,13 +81,6 @@ const  Article = ({ article, setArticle }) => {
         image={ imageUrl }
         title={ article.name }
       />
-      {/* { axios.get(`${url}/articles/image`, {image: article.image,}).then(response => (
-        <CardMedia
-          className={classes.media}
-          image={ response.data }
-          title={ article.name }
-        />
-      ))} */}
       <CardContent className={ classes.text }>
         <Typography variant="body2" component="p">
           { article.body.substring(0, "50") }...
