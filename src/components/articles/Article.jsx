@@ -20,13 +20,15 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
+import moment from "moment";
+
 import { url } from '../../api/index';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
     color: '#000!important',
-    backgroundColor: '#262626'
+    backgroundColor: '#726DA8'
   },
   media: {
     height: 0,
@@ -74,7 +76,7 @@ const  Article = ({ article, setArticle }) => {
           </IconButton>
         }
         title={ article.name }
-        subheader={ article.date }
+        subheader={ moment(article.date).fromNow() }
       />
       <CardMedia
         className={classes.media}
