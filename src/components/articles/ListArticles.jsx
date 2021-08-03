@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     // backgroundColor: theme.palette.background.paper,
     color: '#000!important',
+    marginTop: '1.7em',
   },
   imageList: {
     flexWrap: 'nowrap',
