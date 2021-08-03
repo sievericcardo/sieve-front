@@ -1,4 +1,4 @@
-export const url = "https://backend:5000/api";
+export const url = "http://backend:5000/api";
 
 export const setHeaders = () => {
   const header = {
