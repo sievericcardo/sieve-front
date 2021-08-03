@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export const getProjects = () => {
   return (dispatch) => {
     axios
-      .get(`${url}/projects`)
+      .get(`${url}/projects`, setHeaders())
       .then((projects) => {
         dispatch({
           type: "GET_PROJECTS",

@@ -5,7 +5,8 @@ import { toast } from "react-toastify";
 export const signUp = (user) => {
   return (dispatch) => {
     axios
-      .post(`${url}/signup`, user)
+      .post(`${url}/signup`, user,
+        { headers: { "Access-Control-Allow-Origin": "*" }})
       .then((token) => {
         localStorage.setItem("token", token.data);
 
@@ -26,7 +27,8 @@ export const signUp = (user) => {
 export const signIn = (creds) => {
   return (dispatch) => {
     axios
-      .post(`${url}/signin`, creds)
+      .post(`${url}/signin`, creds, 
+        { headers: { "Access-Control-Allow-Origin": "*" }})
       .then((token) => {
         localStorage.setItem("token", token.data);
 
