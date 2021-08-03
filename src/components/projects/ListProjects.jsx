@@ -11,6 +11,7 @@ import { getProjects } from '../../store/actions/projectActions';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginTop: '0.7em',
   },
   paper: {
     padding: theme.spacing(2),
@@ -45,7 +46,7 @@ const ListProjects = ({ project, setProject }) => {
         {projects &&
           projects.map((project) => {
             return (
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <Project
                   project={project}
                   key={project._id}
