@@ -31,3 +31,8 @@ h4 {
 body {
   overflow-y: overlay;
 }
+
+.MuiCard-root {
+    margin-left: 1em;
+    margin-right: 1em;
+}
