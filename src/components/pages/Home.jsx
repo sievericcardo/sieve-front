@@ -8,6 +8,10 @@ import Banner from '../assets/Banner';
 import Projects from '../projects/Projects';
 import Articles from '../articles/Articles';
 
+import LinkedIn from '@material-ui/icons/LinkedIn';
+import GitHub from '@material-ui/icons/GitHub';
+import Twitter from '@material-ui/icons/Twitter';
+
 const useStyles = makeStyles({
   mainContent: {
     position: 'relative',
@@ -27,7 +31,25 @@ const useStyles = makeStyles({
     marginTop: '1.2em',
     padding: '15px',
     textAlign: 'center',
-  }
+  },
+  icons: {
+    display: 'flex',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    textAlign: 'center',
+    fontSize: '1.2em',
+    margin: 'auto',
+    justifyContent: 'center',
+  },
+  links: {
+    color: 'inherit',
+    textDecoration: 'none',
+    padding: '15px',
+  },
+  largeIcon: {
+    width: '2.3em',
+    height: '2.3em',
+  },
 });
 
 const Home = () => {
@@ -38,14 +60,25 @@ const Home = () => {
       <Banner childToParent={[banner, "Home page banner"]}/>
       <div className={ classes.mainContent }>
         <Typography variant="h1" className={ classes.homeTitle}>
-          A simple blog for tech enthusiasts
+          My personal portfolio - come see me on other platform as well
         </Typography>
+        <div className={ classes.icons }>
+          <a href="https://www.linkedin.com/in/sieve-riccardo/" rel="noreferrer" className={ classes.links } target="_blank">
+            <LinkedIn className={ classes.largeIcon } />
+          </a>
+          <a href="https://github.com/sievericcardo/" rel="noreferrer" className={ classes.links } target="_blank">
+            <GitHub className={ classes.largeIcon } />
+          </a>
+          <a href="https://twitter.com/RiccardoSieve" rel="noreferrer" className={ classes.links } target="_blank">
+            <Twitter className={ classes.largeIcon } />
+          </a>
+        </div>
         <Typography variant="h3" className={ classes.subTitle}>
           My projects
         </Typography>
         <Projects />
         <Typography variant="h3" className={ classes.subTitle}>
-          My articles
+          My posts
         </Typography>
         <Articles />
       </div>
