@@ -24,6 +24,7 @@ import Footer from './components/navbar/Footer';
 import ManageMedias from './components/dashboard/medias/ManageMedias';
 import ManageProjects from './components/dashboard/projects/ManageProjects';
 import ManageArticles from './components/dashboard/articles/ManageArticles';
+import ManageWriteups from './components/dashboard/writeups/ManageWriteups';
 
 import './App.css';
 
@@ -79,6 +80,7 @@ function App() {
               <Route path={match.url + "/manage-medias"} component={ManageMedias} />
               <Route path={match.url + "/manage-projects"} component={ManageProjects} />
               <Route path={match.url + "/manage-articles"} component={ManageArticles} />
+              <Route path={match.url + "/manage-writeups"} component={ManageWriteups} />
             </Switch>
           </Container>
         </main>

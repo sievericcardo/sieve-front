@@ -13,6 +13,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import PermMediaIcon from '@material-ui/icons/PermMedia';
 import AccountTree from '@material-ui/icons/AccountTree';
+import DescriptionIcon from '@material-ui/icons/Description';
 
 // Add icons for data in dashboard
 import Book from '@material-ui/icons/Book';
@@ -49,6 +50,14 @@ export const mainListItems = (
           <AccountTree />
         </ListItemIcon>
         <ListItemText primary="Projects" />
+      </ListItem>
+    </Link>
+    <Link className="linkStyle" to='/cms-dashboard/manage-writeups'>
+      <ListItem button>
+        <ListItemIcon>
+          <DescriptionIcon />
+        </ListItemIcon>
+        <ListItemText primary="Writeups" />
       </ListItem>
     </Link>
   </div>

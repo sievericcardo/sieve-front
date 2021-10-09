@@ -7,10 +7,10 @@ import { makeStyles } from "@material-ui/styles";
 
 import moment from "moment";
 
-import { checkProject, deleteProject } from "../../../store/actions/projectActions";
+import { checkWriteup, deleteWriteup } from "../../../store/actions/writeupActions";
 
 const useStyles = makeStyles({
-  projectStyles: {
+  writeupStyles: {
     margin: "20px auto",
     padding: "20px",
     border: "2px solid #bdbdbd",
@@ -31,13 +31,15 @@ const useStyles = makeStyles({
   },
 });
 
-const Project = ({ project, setProject, projects }) => {
+const Writeup = ({ writeup, setWriteup, writeups }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
   const handleUpdateClick = (id) => {
-    const foundProject = projects.find((project) => project._id === id);
-    setProject({ ...foundProject });
+    const foundWriteup = writeups.find((writeup) => writeup._id === id);
+    foundWriteup.body = decodeURIComponent(escape(atob(foundWriteup.body)));
+
+    setWriteup({ ...foundWriteup });
 
     window.scrollTo({
       top: 0,
@@ -47,34 +49,34 @@ const Project = ({ project, setProject, projects }) => {
   };
 
   const handleCheck = (id) => {
-    dispatch(checkProject(id));
+    dispatch(checkWriteup(id));
   };
 
   const handleDelete = (id) => {
-    dispatch(deleteProject(id));
+    dispatch(deleteWriteup(id));
   };
 
   return (
     <>
-      <div className={classes.projectStyles}>
+      <div className={classes.writeupStyles}>
         <div>
-          <Typography variant="subtitle1">{project.name}</Typography>
+          <Typography variant="subtitle1">{writeup.name}</Typography>
           <Typography variant="body2" className={classes.greyStyle}>
-            Text: {project.body}
+            Text: {writeup.platform}
           </Typography>
           <Typography variant="body2" className={classes.greyStyle}>
-            Added: {moment(project.date).fromNow()}
+            Added: {moment(writeup.date).fromNow()}
           </Typography>
         </div>
         <div>
           <ButtonGroup size="small" aria-label="outlined primary button group">
-            <Button onClick={() => handleCheck(project._id)}>
+            <Button onClick={() => handleCheck(writeup._id)}>
               <CheckCircle color="action" />
             </Button>
-            <Button onClick={() => handleUpdateClick(project._id)}>
+            <Button onClick={() => handleUpdateClick(writeup._id)}>
               <Create color="primary" />
             </Button>
-            <Button onClick={() => handleDelete(project._id)}>
+            <Button onClick={() => handleDelete(writeup._id)}>
               <Delete color="secondary" />
             </Button>
           </ButtonGroup>
@@ -84,5 +86,5 @@ const Project = ({ project, setProject, projects }) => {
   );
 };
 
-export default Project;
+export default Writeup;
 
