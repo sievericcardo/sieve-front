@@ -7,10 +7,10 @@ import { makeStyles } from "@material-ui/styles";
 
 import moment from "moment";
 
-import { checkArticle, deleteArticle } from "../../../store/actions/articleActions";
+import { checkMedia, deleteMedia } from "../../../store/actions/mediaActions";
 
 const useStyles = makeStyles({
-  articleStyles: {
+  mediaStyles: {
     margin: "20px auto",
     padding: "20px",
     border: "2px solid #bdbdbd",
@@ -31,12 +31,12 @@ const useStyles = makeStyles({
   },
 });
 
-const Article = ({ article, setArticle }) => {
+const Media = ({ media, setMedia }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
   const handleUpdateClick = () => {
-    setArticle(article); // Using the article passed as prop from the list to do
+    setMedia(media); // Using the media passed as prop from the list to do
 
     window.scrollTo({
       top: 0,
@@ -46,34 +46,34 @@ const Article = ({ article, setArticle }) => {
   };
 
   const handleCheck = (id) => {
-    dispatch(checkArticle(id));
+    dispatch(checkMedia(id));
   };
 
   const handleDelete = (id) => {
-    dispatch(deleteArticle(id));
+    dispatch(deleteMedia(id));
   };
 
   return (
     <>
-      <div className={classes.articleStyles}>
+      <div className={classes.mediaStyles}>
         <div>
-          <Typography variant="h4">{article.name}</Typography>
+          <Typography variant="h4">{media.image}</Typography>
           <Typography variant="body2" className={classes.greyStyle}>
-            Text: {article.body}
+            Text: {media.altText}
           </Typography>
           <Typography variant="body2" className={classes.greyStyle}>
-            Added: {moment(article.date).fromNow()}
+            Added: {moment(media.date).fromNow()}
           </Typography>
         </div>
         <div>
           <ButtonGroup size="small" aria-label="outlined primary button group">
-            <Button onClick={() => handleCheck(article._id)}>
+            <Button onClick={() => handleCheck(media._id)}>
               <CheckCircle color="action" />
             </Button>
             <Button onClick={() => handleUpdateClick()}>
               <Create color="primary" />
             </Button>
-            <Button onClick={() => handleDelete(article._id)}>
+            <Button onClick={() => handleDelete(media._id)}>
               <Delete color="secondary" />
             </Button>
           </ButtonGroup>
@@ -83,4 +83,4 @@ const Article = ({ article, setArticle }) => {
   );
 };
 
-export default Article;
+export default Media;

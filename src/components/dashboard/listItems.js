@@ -11,10 +11,11 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 // Import icons
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import PermMediaIcon from '@material-ui/icons/PermMedia';
+import AccountTree from '@material-ui/icons/AccountTree';
 
 // Add icons for data in dashboard
 import Book from '@material-ui/icons/Book';
-import AccountTree from '@material-ui/icons/AccountTree';
 
 export const mainListItems = (
   <div>
@@ -24,6 +25,14 @@ export const mainListItems = (
           <DashboardIcon />
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
+      </ListItem>
+    </Link>
+    <Link className="linkStyle" to='/cms-dashboard/manage-medias'>
+      <ListItem button>
+        <ListItemIcon>
+          <PermMediaIcon />
+        </ListItemIcon>
+        <ListItemText primary="Media" />
       </ListItem>
     </Link>
     <Link className="linkStyle" to='/cms-dashboard/manage-articles'>

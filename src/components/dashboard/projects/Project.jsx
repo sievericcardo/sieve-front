@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     color: "#000"
   },
   greyStyle: {
-    color: "#212121!important",
+    color: "#010!important",
   },
   isComplete: {
     color: "green",

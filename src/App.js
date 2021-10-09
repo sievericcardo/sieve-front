@@ -21,6 +21,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Chart from './components/dashboard/Chart';
 import Sidebar from './components/dashboard/Sidebar';
 import Footer from './components/navbar/Footer';
+import ManageMedias from './components/dashboard/medias/ManageMedias';
 import ManageProjects from './components/dashboard/projects/ManageProjects';
 import ManageArticles from './components/dashboard/articles/ManageArticles';
 
@@ -75,6 +76,7 @@ function App() {
           <Container maxWidth="lg" className={ classes.container }>
             <Switch>
               <Route exact path={match.url} component={Chart} />
+              <Route path={match.url + "/manage-medias"} component={ManageMedias} />
               <Route path={match.url + "/manage-projects"} component={ManageProjects} />
               <Route path={match.url + "/manage-articles"} component={ManageArticles} />
             </Switch>
