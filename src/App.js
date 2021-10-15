@@ -3,10 +3,27 @@ import { useDispatch } from 'react-redux';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+// Authentication
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+
+// Pages
 import Home from './components/pages/Home';
+import Writeup from './components/pages/Writeup';
+import DisplayWriteups from './components/pages/DisplayWriteups';
+
+// Navigation components
 import Navbar from './components/navbar/Navbar';
+import Footer from './components/navbar/Footer';
+
+// Backend pages
+import Dashboard from './components/dashboard/Dashboard';
+import Chart from './components/dashboard/Chart';
+import Sidebar from './components/dashboard/Sidebar';
+import ManageMedias from './components/dashboard/medias/ManageMedias';
+import ManageProjects from './components/dashboard/projects/ManageProjects';
+import ManageArticles from './components/dashboard/articles/ManageArticles';
+import ManageWriteups from './components/dashboard/writeups/ManageWriteups';
 
 import Container from '@material-ui/core/Container';
 
@@ -16,15 +33,6 @@ import { loadUser } from './store/actions/authActions';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import Dashboard from './components/dashboard/Dashboard';
-import Chart from './components/dashboard/Chart';
-import Sidebar from './components/dashboard/Sidebar';
-import Footer from './components/navbar/Footer';
-import ManageMedias from './components/dashboard/medias/ManageMedias';
-import ManageProjects from './components/dashboard/projects/ManageProjects';
-import ManageArticles from './components/dashboard/articles/ManageArticles';
-import ManageWriteups from './components/dashboard/writeups/ManageWriteups';
 
 import './App.css';
 
@@ -95,6 +103,8 @@ function App() {
         <Switch>
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
+          <Route exact path="/writeups" component={DisplayWriteups} />
+          <Route exact path="/writeups/:id" component={Writeup} />
           <Route path="/" component={Home} />
           {/* <Route path="/" exact component={Articles} /> */}
         </Switch>
@@ -108,7 +118,7 @@ function App() {
       <BrowserRouter>
         <ToastContainer />
         <Route path="/cms-dashboard" component={DashboardContainer}/>
-        <Route exact path={["/", "/signin"]} component={DefaultContainer}/>
+        <Route exact path={["/", "/signin", "/writeups", "/writeups/:id"]} component={DefaultContainer}/>
       </BrowserRouter>
     </div>
   );
