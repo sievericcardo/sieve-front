@@ -37,7 +37,9 @@ const Writeup = ({ writeup, setWriteup, writeups }) => {
 
   const handleUpdateClick = (id) => {
     const foundWriteup = writeups.find((writeup) => writeup._id === id);
-    foundWriteup.body = decodeURIComponent(escape(atob(foundWriteup.body)));
+    // foundWriteup.body = decodeURIComponent(escape(atob(foundWriteup.body)));
+    // foundWriteup.body = atob(foundWriteup.body);
+    foundWriteup.body = decodeURIComponent(escape(foundWriteup.body));
 
     setWriteup({ ...foundWriteup });
 
