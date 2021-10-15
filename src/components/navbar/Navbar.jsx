@@ -17,6 +17,8 @@ const useStyles = makeStyles({
   linkStyle: {
     color: "#fafafa",
     textDecoration: "none",
+    margin: "5px",
+    padding: "5px",
   },
   authButton: {
     //
@@ -59,6 +61,11 @@ const Navbar = () => {
             <Link className={ classes.linkStyle } to="/">
               <span className={ classes.title }>Sieve</span>
             </Link>
+            <Button color="inherit">
+            <Link className={classes.linkStyle} to="/writeups">
+              Writeups
+            </Link>
+          </Button>
           </Typography>
           {auth._id ? (
             <>
