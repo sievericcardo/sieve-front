@@ -20,6 +20,10 @@ const DisplayWriteups = () => {
   return (
     <div className={ classes.base }>
       <div className={ classes.mainContent }>
+        <h1>Writeups</h1>
+        <p>&nbsp;</p>
+        <p>During my experience in HackTheBox and TryHackMe I've been able to get lot of experience and knowledge regarding the cybersecurity domain; I hope that my writeups can be of help to learn something as well.</p>
+        <p>&nbsp;</p>
         <Writeups />
       </div>
     </div>
