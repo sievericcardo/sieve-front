@@ -34,6 +34,16 @@ const AddWriteup = ({ writeup, setWriteup }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
+  const getBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -42,21 +52,30 @@ const AddWriteup = ({ writeup, setWriteup }) => {
 
       const updatedWriteup = {
         name: writeup.name,
-        body: btoa(unescape(encodeURIComponent(writeup.body))),
+        // body: btoa(unescape(encodeURIComponent(writeup.body))),
+        body: unescape(encodeURIComponent(writeup.body)),
         date: writeup.date,
         author: "Riccardo",
       };
 
       dispatch(updateWriteup(updatedWriteup, id));
     } else {
-      writeup.body = btoa(unescape(encodeURIComponent(writeup.body)));
+      var file = writeup.image;
 
-      const newWriteup = {
-        ...writeup,
-        date: new Date(),
-      };
+      // writeup.body = btoa(unescape(encodeURIComponent(writeup.body)));
+      writeup.body = unescape(encodeURIComponent(writeup.body));
 
-      dispatch(addWriteup(newWriteup));
+      getBase64(file).then (
+        data => {
+          const newWriteup = {
+            ...writeup,
+            image: data,
+            date: new Date(),
+          };
+    
+          dispatch(addWriteup(newWriteup));
+        }
+      );
     }
 
     setWriteup({
@@ -71,6 +90,7 @@ const AddWriteup = ({ writeup, setWriteup }) => {
         noValidate
         autoComplete="off"
         className={classes.formStyle}
+        encType='multipart/form-data'
         onSubmit={ handleSubmit }
       >
         <div>
@@ -103,6 +123,14 @@ const AddWriteup = ({ writeup, setWriteup }) => {
               Try Hack Me
             </MenuItem>
           </TextField>
+          <input
+            type="file"
+            id="uploading"
+            name="uploading"
+            accept="image/webp"
+            className={ classes.imageUpload }
+            onChange={(e) => setWriteup({ ...writeup, image: e.target.files[0] })}
+          />
         </div>
         <div>
           <TextField 
