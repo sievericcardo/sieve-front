@@ -3,11 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
-// import ImageListItem from '@material-ui/core/ImageListItem';
-// import ImageListItemBar from '@material-ui/core/ImageListItemBar';
-// import IconButton from '@material-ui/core/IconButton';
-
-// import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 import Article from './Article';
 import { getArticles } from '../../store/actions/articleActions';
