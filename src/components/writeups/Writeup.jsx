@@ -67,16 +67,17 @@ const useStyles = makeStyles((theme) => ({
 const Writeup = ({ writeup, setWriteup }) => {
   const classes = useStyles();
 
-  const imageUrl = `${url}/writeups/image?path=${writeup.image}`;
+  const imageUrl = `${url}/medias/image?path=${writeup.image}`;
   const link = `/writeups/${writeup._id}`;
 
   return (
     <Card className={classes.mainClass} sx={{ maxWidth: 345 }}>
+      {/* <img src="http://127.0.0.1:5000/api/medias/image?path=./uploads/img/2021/10/image-b10e82470f5df913980cea7f82d249069ceaa4f7.webp" /> */}
       <CardActionArea>
         <Link className={classes.linkStyle} to={ link }>
           <CardMedia
-            component="img"
-            height="140"
+            // component="img"
+            // height="140"
             className={classes.media}
             image={ imageUrl }
             title={ writeup.name }
@@ -92,9 +93,9 @@ const Writeup = ({ writeup, setWriteup }) => {
           <Typography variant="h4" color="text.secondary" className={classes.plat}>
             { writeup.platform }
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          {/* <Typography variant="body2" color="text.secondary">
             { writeup.body.substring(0, "50") }...
-          </Typography>
+          </Typography> */}
         </CardContent>
       </CardActionArea>
       {/* <CardActions>
