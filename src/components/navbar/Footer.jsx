@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     position: 'relative',
     width: '100vw',
     backgroundColor: '#161616',
-    color: '#fff',
+    color: '#fff!important',
     margin: '50px 0 0 0',
     padding: '0px 20px 30px 0',
   },
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 
 const Copyright = () => {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" color="#fff" align="center">
       {'Copyright @'}
       <Link color="inherit" href="/">Sieve</Link>{' '}
       { new Date().getFullYear() }
