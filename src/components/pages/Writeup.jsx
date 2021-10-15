@@ -39,7 +39,7 @@ const  Writeup = () => {
   return (
     <div className={classes.mainContent}>
       {/* <ReactMarkdown>{ decodeURIComponent(escape(atob(writeup.body))) }</ReactMarkdown> */}
-      <ReactMarkdown>{ decodeURIComponent(escape(atob(writeup.body))) }</ReactMarkdown>
+      <ReactMarkdown>{ decodeURIComponent(escape(writeup.body)) }</ReactMarkdown>
     </div>
   );
 };
