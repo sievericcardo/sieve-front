@@ -108,6 +108,17 @@ const AddWriteup = ({ writeup, setWriteup }) => {
           <TextField
             required
             className={ classes.marginBlocks }
+            id="enter-writeup"
+            variant="outlined"
+            label="Writeup description"
+            autoFocus
+            fullWidth
+            value={writeup.description}
+            onChange={(e) => setWriteup({ ...writeup, description: e.target.value })}
+          />
+          <TextField
+            required
+            className={ classes.marginBlocks }
             id="platform-writeup"
             select
             label="Select platform"
