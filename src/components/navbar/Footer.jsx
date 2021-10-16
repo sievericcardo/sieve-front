@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 
 const Copyright = () => {
   return (
-    <Typography color="#fff!important" align="center">
+    <Typography variant="h6" color="secondary" align="center">
       {'Copyright @'}
       <Link color="inherit" href="/">Sieve</Link>{' '}
       { new Date().getFullYear() }
