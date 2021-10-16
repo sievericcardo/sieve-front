@@ -1,4 +1,5 @@
 import React from 'react';
+// import ReactMarkdown from 'react-markdown';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -69,6 +70,7 @@ const Writeup = ({ writeup, setWriteup }) => {
 
   const imageUrl = `${url}/medias/image?path=${writeup.image}`;
   const link = `/writeups/${writeup._id}`;
+  // const text = decodeURIComponent(escape(writeup.body )).substring(0, "50") + '...';
 
   return (
     <Card className={classes.mainClass} sx={{ maxWidth: 345 }}>
@@ -90,12 +92,13 @@ const Writeup = ({ writeup, setWriteup }) => {
               { writeup.name }
             </Typography>
           </Link>
-          <Typography variant="h4" color="text.secondary" className={classes.plat}>
+          <Typography variant="h6" color="text.secondary" className={classes.plat}>
             { writeup.platform }
           </Typography>
-          {/* <Typography variant="body2" color="text.secondary">
-            { writeup.body.substring(0, "50") }...
-          </Typography> */}
+          <Typography variant="body2" color="text.secondary">
+            {/* <ReactMarkdown>{ text }</ReactMarkdown> */}
+            { writeup.description }
+          </Typography>
         </CardContent>
       </CardActionArea>
       {/* <CardActions>
