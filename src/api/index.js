@@ -1,5 +1,5 @@
-// export const url = "https://sieve.serveblog.net:5000/api";
-export const url = "http://127.0.0.1:5000/api";
+export const url = "https://sieve.serveblog.net:5000/api";
+// export const url = "http://127.0.0.1:5000/api";
 
 export const setHeaders = () => {
   const header = {
