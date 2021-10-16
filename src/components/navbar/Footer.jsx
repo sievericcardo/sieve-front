@@ -15,27 +15,35 @@ const useStyles = makeStyles({
     margin: '50px 0 0 0',
     padding: '0px 20px 30px 0',
   },
-})
+  mainContent: {
+    textAlign: "center",
+    marginTop: "1.1em",
+  },
+});
 
 const Copyright = () => {
   return (
-    <Typography variant="body2" color="#fff" align="center">
+    <Typography color="#fff!important" align="center">
       {'Copyright @'}
       <Link color="inherit" href="/">Sieve</Link>{' '}
       { new Date().getFullYear() }
       {'.'}
     </Typography>
   )
-}
+};
 
 const Footer = () => {
   const classes = useStyles();
 
   return (
-    <div className={ classes.footer }>
-      <Box pt={4}>
-        <Copyright />
-      </Box>
+    <div className={ classes.mainContent }>
+      {/* <img src="https://tryhackme-badges.s3.amazonaws.com/Xelinion.png" alt="TryHackMe" /> */}
+      <div className={ classes.footer }>
+        <script src="https://tryhackme.com/badge/632428"></script>
+        <Box pt={4}>
+          <Copyright />
+        </Box>
+      </div>
     </div>
   );
 }
