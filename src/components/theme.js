@@ -49,6 +49,9 @@ const theme = createTheme({
     },
   },
   typography: {
+    body1: {
+      color: '#000!important'
+    },
     body2: {
       color: '#000!important'
       // fontWeight: 500,
@@ -57,7 +60,10 @@ const theme = createTheme({
     },
     h4: {
       color: '#000!important'
-    }
+    },
+    h6: {
+      color: '#fff!important'
+    },
   },
   mixins: {
     toolbar: {
