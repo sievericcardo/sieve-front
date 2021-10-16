@@ -24,6 +24,8 @@ const DisplayWriteups = () => {
         <p>&nbsp;</p>
         <p>During my experience in HackTheBox and TryHackMe I've been able to get lot of experience and knowledge regarding the cybersecurity domain; I hope that my writeups can be of help to learn something as well.</p>
         <p>&nbsp;</p>
+        <p>I will try to add more writeups as the time passes to provide more and more content to see; for any information, suggestion contact me and I'll be happy to discuss about cyber topics.</p>
+        <p>&nbsp;</p>
         <Writeups />
       </div>
     </div>
